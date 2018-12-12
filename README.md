@@ -3,7 +3,7 @@
 A small project to generate a diagram that explains the nomenclature of family
 relationships.
 
-![diagram](https://github.com/tevaughan/relationships/releases/download/v1.0/relations.png?raw=true)
+![diagram](https://github.com/tevaughan/relationships/releases/download/v1.0/relations.png?raw=true "relation.png")
 
 In this project is an [ASCII file](relations.dot) (the `dot` file) with source
 code for the [dot](https://graphviz.gitlab.io/_pages/doc/info/lang.html)
