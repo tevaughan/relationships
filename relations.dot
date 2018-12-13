@@ -3,40 +3,67 @@
 // See LICENSE.
 
 digraph G {
-  node [shape=rectangle width=3 height=1 style=filled];
+  rankdir="LR"
+  node [shape=rectangle width=1.1 style=filled];
 
-  subgraph cluster_self {
-    style=filled;
-    color=lightgray;
-    ggGf -> gGf -> Gf -> f -> m -> s -> Gs -> gGs;
+  subgraph self {
+  ggGf -> gGf -> Gf    -> f     -> m   -> s     -> Gs    -> gGs;
   }
 
-  subgraph cluster_zero {
-    style=filled;
-    color=lightgray;
-    edge [style=invis];
-    gGu -> Gu -> u -> b -> n -> Gn -> gGn;
+  subgraph cluster_rp4 {
+    style=filled
+    color=lightgray
+    label="+4 times\lremoved"
+    ggGf
   }
 
-  subgraph cluster_one  {
-    style=filled;
-    color=lightgray;
-    edge [style=invis];
-    fcp2r -> fcp1r -> fc -> fc1r -> fc2r -> fc3r;
+  subgraph cluster_rp3 {
+    style=filled
+    color=lightgray
+    label="+thrice\lremoved"
+    gGf; gGu
   }
 
-  subgraph cluster_two {
-    style=filled;
-    color=lightgray;
-    edge [style=invis];
-    scp1r -> sc -> sc1r -> sc2r -> sc3r;
+  subgraph cluster_rp2 {
+    style=filled
+    color=lightgray
+    label="+twice\lremoved"
+    Gf; Gu; fcp2r
   }
 
-  subgraph cluster_three {
+  subgraph cluster_rp1  {
     style=filled;
     color=lightgray;
-    edge [style=invis];
-    thc; thc1r; thc2r; thc3r;
+    label="+once\lremoved"
+    f; u; fcp1r; scp1r
+  }
+
+  subgraph cluster_r0 {
+    style=filled;
+    color=lightgray;
+    label="not\lremoved"
+    m; b; fc; sc; thc
+  }
+
+  subgraph cluster_rn1 {
+    style=filled;
+    color=lightgray;
+    label=<&#8722;once<br align="left"/>removed>
+    s; n; fc1r; sc1r; thc1r
+  }
+
+  subgraph cluster_rn2 {
+    style=filled;
+    color=lightgray;
+    label=<&#8722;twice<br align="left"/>removed>
+    Gs; Gn; fc2r; sc2r; thc2r
+  }
+
+  subgraph cluster_rn3 {
+    style=filled;
+    color=lightgray;
+    label=<&#8722;thrice<br align="left"/>removed>
+    gGs; gGn; fc3r; sc3r; thc3r
   }
 
   ggGf -> gGu -> fcp2r -> scp1r -> thc -> thc1r -> thc2r -> thc3r;
@@ -44,10 +71,119 @@ digraph G {
                  Gf    -> u     -> fc  -> fc1r  -> fc2r  -> fc3r;
                           f     -> b   -> n     -> Gn    -> gGn;
 
+  ggGf [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               <tr><td align="center">(great<br align="left"/>great<br
+               align="left"/>grand<br align="left"/>father)</td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+   gGf [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               <tr><td align="center">(great<br align="left"/>grand<br align="left"/>father)</td></tr>
+               </table></font>>, fillcolor="#5185ff"];
+    Gf [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               <tr><td align="center">(grand<br align="left"/>father)</td></tr>
+               </table></font>>, fillcolor="#51e8ff"];
+     f [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               <tr><td align="center">(father)</td></tr>
+               </table></font>>, fillcolor="#51ffb1"];
+     m [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               </table></font>>, fillcolor="#55ff51"];
+     s [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               <tr><td align="center">(son)</td></tr>
+               </table></font>>, fillcolor="#51ffb1"];
+    Gs [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               <tr><td align="center">(grand<br align="left"/>son)</td></tr>
+               </table></font>>, fillcolor="#51e8ff"];
+   gGs [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>self</i></td></tr>
+               <tr><td align="center">(great<br align="left"/>grand<br align="left"/>son)</td></tr>
+               </table></font>>, fillcolor="#5185ff"];
+
+   gGu [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>0<sup>th</sup><br align="left"/>cousin</i></td></tr>
+               <tr><td align="center">(great<br align="left"/>grand<br align="left"/>uncle)</td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+ fcp2r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>1<sup>st</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+ scp1r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>2<sup>nd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+   thc [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>3<sup>rd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+ thc1r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>3<sup>rd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#e551ff"];
+ thc2r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>3<sup>rd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#ff51b5"];
+ thc3r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>3<sup>rd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#ff5151"];
+
+    Gu [label=<<font><table border="0" cellspacing="0" cellborder="0">
+              <tr><td align="center"><i>0<sup>th</sup><br align="left"/>cousin</i></td></tr>
+              <tr><td align="center">(grand<br align="left"/>uncle)</td></tr>
+              </table></font>>, fillcolor="#5185ff"];
+ fcp1r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>1<sup>st</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#5185ff"];
+    sc [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>2<sup>nd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#5185ff"];
+  sc1r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>2<sup>nd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+  sc2r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>2<sup>nd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#e551ff"];
+  sc3r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>2<sup>nd</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#ff51b5"];
+
+     u [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>0<sup>th</sup><br align="left"/>cousin</i></td></tr>
+               <tr><td align="center">(uncle)</td></tr>
+               </table></font>>, fillcolor="#51e8ff"];
+    fc [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>1<sup>st</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#51e8ff"];
+  fc1r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>1<sup>st</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#5185ff"];
+  fc2r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>1<sup>st</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+  fc3r [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>1<sup>st</sup><br align="left"/>cousin</i></td></tr>
+               </table></font>>, fillcolor="#e551ff"];
+
+     b [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>0<sup>th</sup><br align="left"/>cousin</i></td></tr>
+               <tr><td align="center">(brother)</td></tr>
+               </table></font>>, fillcolor="#51ffb1"];
+     n [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>0<sup>th</sup><br align="left"/>cousin</i></td></tr>
+               <tr><td align="center">(nephew)</td></tr>
+               </table></font>>, fillcolor="#51e8ff"];
+    Gn [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>0<sup>th</sup><br align="left"/>cousin</i></td></tr>
+               <tr><td align="center">(grand<br align="left"/>nephew)</td></tr>
+               </table></font>>, fillcolor="#5185ff"];
+   gGn [label=<<font><table border="0" cellspacing="0" cellborder="0">
+               <tr><td align="center"><i>0<sup>th</sup><br align="left"/>cousin</i></td></tr>
+               <tr><td align="center">(great<br align="left"/>grand<br align="left"/>nephew)</td></tr>
+               </table></font>>, fillcolor="#8151ff"];
+
   subgraph cluster_relation {
-    label="mean shared genetic code\n(when siblings have same parents, and no cousins marry)"
-    fontsize=20
-    node [shape=rectangle width=auto height=auto style=filled, fontsize=20];
+    label="shared\lgenetics"
+    node [shape=rectangle width=0.4 height=0.2 style=filled];
     r1 [label="50.0%", fillcolor="#51ffb1"];
     r2 [label="25.0%", fillcolor="#51e8ff"];
     r3 [label="12.5%", fillcolor="#5185ff"];
@@ -57,117 +193,8 @@ digraph G {
     r7 [label="00.8%", fillcolor="#ff5151"];
   }
 
-  notice [label="Copyright 2018 Thomas E. Vaughan.\lFreely redistributable under terms of GPL, Version 3 or later.\lSource at https://github.com/tevaughan/relationships.\l"]
+  notice [fillcolor=lightcyan label="Copyright 2018\lThomas E. Vaughan.\lLicense: GPL3.\lhttps://github.com\l/tevaughan\l/relationships.\l"]
 
   r1 -> notice [style=invis];
-
-  ggGf [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self +4 removed</i></td></tr>
-               <tr><td align="center">(great great grandfather)</td></tr>
-               </table></font>>, fillcolor="#8151ff"];
-   gGf [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self +3 removed</i></td></tr>
-               <tr><td align="center">(great grandfather)</td></tr>
-               </table></font>>, fillcolor="#5185ff"];
-    Gf [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self +2 removed</i></td></tr>
-               <tr><td align="center">(grandfather)</td></tr>
-               </table></font>>, fillcolor="#51e8ff"];
-     f [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self +1 removed</i></td></tr>
-               <tr><td align="center">(father)</td></tr>
-               </table></font>>, fillcolor="#51ffb1"];
-     m [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self</i></td></tr>
-               </table></font>>, fillcolor="#55ff51"];
-     s [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self &#8722;1 removed</i></td></tr>
-               <tr><td align="center">(son)</td></tr>
-               </table></font>>, fillcolor="#51ffb1"];
-    Gs [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self &#8722;2 removed</i></td></tr>
-               <tr><td align="center">(grandson)</td></tr>
-               </table></font>>, fillcolor="#51e8ff"];
-   gGs [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>self &#8722;3 removed</i></td></tr>
-               <tr><td align="center">(great grandson)</td></tr>
-               </table></font>>, fillcolor="#5185ff"];
-
-   gGu [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>0<sup>th</sup> cousin +3 removed</i></td></tr>
-               <tr><td align="center">(great granduncle)</td></tr>
-               </table></font>>, fillcolor="#8151ff"];
- fcp2r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>1<sup>st</sup> cousin +2 removed</i></td></tr>
-               </table></font>>, fillcolor="#8151ff"];
- scp1r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>2<sup>nd</sup> cousin +1 removed</i></td></tr>
-               </table></font>>, fillcolor="#8151ff"];
-   thc [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>3<sup>rd</sup> cousin</i></td></tr>
-               </table></font>>, fillcolor="#8151ff"];
- thc1r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>3<sup>rd</sup> cousin &#8722;1 removed</i></td></tr>
-               </table></font>>, fillcolor="#e551ff"];
- thc2r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>3<sup>rd</sup> cousin &#8722;2 removed</i></td></tr>
-               </table></font>>, fillcolor="#ff51b5"];
- thc3r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>3<sup>rd</sup> cousin &#8722;3 removed</i></td></tr>
-               </table></font>>, fillcolor="#ff5151"];
-
-    Gu [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-              <tr><td align="center"><i>0<sup>th</sup> cousin +2 removed</i></td></tr>
-              <tr><td align="center">(granduncle)</td></tr>
-              </table></font>>, fillcolor="#5185ff"];
- fcp1r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>1<sup>st</sup> cousin +1 removed</i></td></tr>
-               </table></font>>, fillcolor="#5185ff"];
-    sc [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>2<sup>nd</sup> cousin</i></td></tr>
-               </table></font>>, fillcolor="#5185ff"];
-  sc1r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>2<sup>nd</sup> cousin &#8722;1 removed</i></td></tr>
-               </table></font>>, fillcolor="#8151ff"];
-  sc2r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>2<sup>nd</sup> cousin &#8722;2 removed</i></td></tr>
-               </table></font>>, fillcolor="#e551ff"];
-  sc3r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>2<sup>nd</sup> cousin &#8722;3 removed</i></td></tr>
-               </table></font>>, fillcolor="#ff51b5"];
-
-     u [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>0<sup>th</sup> cousin +1 removed</i></td></tr>
-               <tr><td align="center">(uncle)</td></tr>
-               </table></font>>, fillcolor="#51e8ff"];
-    fc [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>1<sup>st</sup> cousin</i></td></tr>
-               </table></font>>, fillcolor="#51e8ff"];
-  fc1r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>1<sup>st</sup> cousin &#8722;1 removed</i></td></tr>
-               </table></font>>, fillcolor="#5185ff"];
-  fc2r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>1<sup>st</sup> cousin &#8722;2 removed</i></td></tr>
-               </table></font>>, fillcolor="#8151ff"];
-  fc3r [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>1<sup>st</sup> cousin &#8722;3 removed</i></td></tr>
-               </table></font>>, fillcolor="#e551ff"];
-
-     b [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>0<sup>th</sup> cousin</i></td></tr>
-               <tr><td align="center">(brother)</td></tr>
-               </table></font>>, fillcolor="#51ffb1"];
-     n [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>0<sup>th</sup> cousin &#8722;1 removed</i></td></tr>
-               <tr><td align="center">(nephew)</td></tr>
-               </table></font>>, fillcolor="#51e8ff"];
-    Gn [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>0<sup>th</sup> cousin &#8722;2 removed</i></td></tr>
-               <tr><td align="center">(grandnephew)</td></tr>
-               </table></font>>, fillcolor="#5185ff"];
-   gGn [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
-               <tr><td align="center"><i>0<sup>th</sup> cousin &#8722;3 removed</i></td></tr>
-               <tr><td align="center">(great grandnephew)</td></tr>
-               </table></font>>, fillcolor="#8151ff"];
 }
 
