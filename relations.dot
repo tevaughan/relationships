@@ -45,7 +45,7 @@ digraph G {
                           f     -> b   -> n     -> Gn    -> gGn;
 
   subgraph cluster_relation {
-    label="average relation (when siblings have same parents)"
+    label="mean shared genetic code\n(when siblings have same parents, and no cousins marry)"
     fontsize=20
     node [shape=rectangle width=auto height=auto style=filled, fontsize=20];
     r1 [label="50.0%", fillcolor="#51ffb1"];
@@ -57,7 +57,9 @@ digraph G {
     r7 [label="00.8%", fillcolor="#ff5151"];
   }
 
-  //{ edge [style=invis]; r1 -> r2 -> r3 -> r4 -> r5 -> r6 -> r7; }
+  notice [label="Copyright 2018 Thomas E. Vaughan.\lFreely redistributable under terms of GPL, Version 3 or later.\lSource at https://github.com/tevaughan/relationships.\l"]
+
+  r1 -> notice [style=invis];
 
   ggGf [label=<<font point-size="20"><table border="0" cellspacing="0" cellborder="0">
                <tr><td align="center"><i>self +4 removed</i></td></tr>
