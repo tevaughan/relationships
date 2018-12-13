@@ -4,11 +4,7 @@
 
 digraph G {
   rankdir="LR"
-  node [shape=rectangle width=1.1 style=filled];
-
-  subgraph self {
-  ggGf -> gGf -> Gf    -> f     -> m   -> s     -> Gs    -> gGs;
-  }
+  node [shape=plain style=filled];
 
   subgraph cluster_rp4 {
     style=filled
@@ -66,6 +62,7 @@ digraph G {
     gGs; gGn; fc3r; sc3r; thc3r
   }
 
+  ggGf -> gGf -> Gf    -> f     -> m   -> s     -> Gs    -> gGs;
   ggGf -> gGu -> fcp2r -> scp1r -> thc -> thc1r -> thc2r -> thc3r;
           gGf -> Gu    -> fcp1r -> sc  -> sc1r  -> sc2r  -> sc3r;
                  Gf    -> u     -> fc  -> fc1r  -> fc2r  -> fc3r;
@@ -182,8 +179,9 @@ digraph G {
                </table></font>>, fillcolor="#8151ff"];
 
   subgraph cluster_relation {
+    fontsize=9
     label="shared\lgenetics"
-    node [shape=rectangle width=0.4 height=0.2 style=filled];
+    node [shape=plain style=filled fontsize=9];
     r1 [label="50.0%", fillcolor="#51ffb1"];
     r2 [label="25.0%", fillcolor="#51e8ff"];
     r3 [label="12.5%", fillcolor="#5185ff"];
@@ -193,8 +191,9 @@ digraph G {
     r7 [label="00.8%", fillcolor="#ff5151"];
   }
 
-  notice [fillcolor=lightcyan label="Copyright 2018\lThomas E. Vaughan.\lLicense: GPL3.\lhttps://github.com\l/tevaughan\l/relationships.\l"]
+  notice [fontsize=9 fillcolor=white
+  label="Copyright\l2018\lThomas E.\lVaughan.\l\lLicense:\lGPL3.\l\lhttps:\l//github.com\l/tevaughan\l/relationships.\l"]
 
-  r1 -> notice [style=invis];
+  r2 -> notice [style=invis];
 }
 
